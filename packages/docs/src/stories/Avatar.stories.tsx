@@ -9,6 +9,14 @@ export default {
     src: 'https://github.com/JoaoSBrito.png',
     alt: 'João Vitor Brito',
   },
+
+  argTypes: {
+    src: {
+      control: {
+        type: 'text',
+      },
+    },
+  },
 } as Meta<AvatarProps>
 
 export const Primary: StoryObj<AvatarProps> = {}
