@@ -1,20 +1,23 @@
 name: Deploy docs
+
 on:
   push:
     branches:
       - main
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 16
-          cache: "npm"
-          cache-dependency-path: "**/package-lock.json"
+          cache: 'npm'
+          cache-dependency-path: '**/package-lock.json'
 
       - run: npm ci
 
@@ -22,6 +25,7 @@ jobs:
         env:
           TURBO_TOKEN: ${{ secrets.VERCEL_TOKEN }}
           TURBO_TEAM: joaosbrito
+
 
       - name: Deploy storybook
         working-directory: ./packages/docs
