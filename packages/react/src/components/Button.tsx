@@ -10,36 +10,40 @@ export const Button = styled('button', {
   textAlign: 'center',
   minWidth: 120,
   boxSizing: 'border-box',
+  padding: '0 $4',
 
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
   gap: '$2',
-  padding: '0 $4',
 
   cursor: 'pointer',
-
-  '&:disabled': {
-    cursor: 'not-allowed',
-  },
 
   svg: {
     width: '$4',
     height: '$4',
   },
 
+  '&:disabled': {
+    cursor: 'not-allowed',
+  },
+
+  '&:focus': {
+    boxShadow: '0 0 0 2px $colors$gray100',
+  },
+
   variants: {
     variant: {
       primary: {
         color: '$white',
-        backgroundColor: '$ignite500',
+        background: '$ignite500',
 
         '&:not(:disabled):hover': {
           background: '$ignite300',
         },
 
         '&:disabled': {
-          background: '$gray200',
+          backgroundColor: '$gray200',
         },
       },
 
@@ -62,7 +66,6 @@ export const Button = styled('button', {
         color: '$gray100',
 
         '&:not(:disabled):hover': {
-          background: '$ignite500',
           color: '$white',
         },
 
@@ -71,10 +74,12 @@ export const Button = styled('button', {
         },
       },
     },
+
     size: {
       sm: {
         height: 38,
       },
+
       md: {
         height: 46,
       },
